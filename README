@@ -1,0 +1,6 @@
+The unix `sum` utility performs a simple checksum.
+
+While investigating a program that uses it to verify data integrity, I failed
+to find a tool for generating collisions in interesting ways.
+
+This only uses the BSD, not sysv, algorithm.
