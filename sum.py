@@ -7,7 +7,7 @@ import math, sys
 from typing import Iterable, Tuple
 
 def rotate_right_16bit(data: int) -> int:
-  """rotate right a 16-bit value"""
+  """rotate a 16-bit value to the right"""
   return (data >> 1) | ((data & 1) << 15)
 
 def compute_sum(data: bytes) -> Tuple[int, int]:
