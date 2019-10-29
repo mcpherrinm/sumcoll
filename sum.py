@@ -10,6 +10,10 @@ def rotate_right_16bit(data: int) -> int:
   """rotate a 16-bit value to the right"""
   return (data >> 1) | ((data & 1) << 15)
 
+def add(sum: int, byte: int) -> int:
+  sum = rotate_right_16bit(sum) + byte
+  return sum & 0xffff # clamp to 16 bits
+
 def compute_sum(data: bytes) -> Tuple[int, int]:
   """
   Compute the BSD sum checksum over data
@@ -18,8 +22,7 @@ def compute_sum(data: bytes) -> Tuple[int, int]:
   """
   sum = 0
   for byte in data:
-    sum = rotate_right_16bit(sum) + byte
-    sum = sum & 0xffff # clamp to 16 bits
+    sum = add(sum, byte)
   return sum, math.ceil(len(data) / 1024)
 
 def format_sum(sum: int, blocks: int):

@@ -12,6 +12,9 @@ def rotate_left_16bit(data: int) -> int:
   """rotate a 16-bit value to the left"""
   return (0xffff & (data << 1)) | (data >> 15)
 
+def sub(sum: int, byte: int) -> int:
+  return rotate_left_16bit((sum - byte) & 0xffff)
+
 def backwards_sum(data: bytes, sum: int) -> int:
   """
   Runs the bsd sum value in reverse
@@ -20,7 +23,7 @@ def backwards_sum(data: bytes, sum: int) -> int:
   must have to achieve the given checksum argument
   """
   for byte in reversed(data):
-    sum = rotate_left_16bit((sum - byte) & 0xffff)
+    sum = sub(sum, byte)
   return sum
 
 def test():
