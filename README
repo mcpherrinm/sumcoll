@@ -1,6 +1,9 @@
 The unix `sum` utility performs a simple checksum.
 
-While investigating a program that uses it to verify data integrity, I failed
-to find a tool for generating collisions in interesting ways.
+For more information about this, see
+https://mcpherrin.ca/2019/10/26/sum-collisions.html
 
-This only uses the BSD, not sysv, algorithm.
+sum.py contains an implementation of BSD sum
+attack.py contains an attack on the algorithm as described in the above blog post.
+
+old/ contains a less-general version of the tool written in C.
