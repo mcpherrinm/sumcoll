@@ -1,7 +1,7 @@
 The unix `sum` utility performs a simple checksum.
 
 For more information about this, see
-https://mcpherrin.ca/2019/10/26/sum-collisions.html
+https://mcpherrin.ca/2019/11/23/sum-collisions.html
 
 sum.py contains an implementation of BSD sum
 attack.py contains an attack on the algorithm as described in the above blog post.
